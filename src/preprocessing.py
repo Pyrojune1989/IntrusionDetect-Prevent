@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import gzip
 from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split  # Ensure scikit-learn is installed: pip install scikit-learn
 
 # Define file paths
 RAW_DATA_PATH = "../data/raw/kddcup.data_10_percent.gz"
