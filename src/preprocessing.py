@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import gzip
+import os
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split  # Ensure scikit-learn is installed: pip install scikit-learn
 
@@ -8,8 +9,10 @@ from sklearn.model_selection import train_test_split  # Ensure scikit-learn is i
 RAW_DATA_PATH = "../data/raw/kddcup.data_10_percent.gz"
 FEATURE_NAMES_PATH = "../data/features/kdd_feature_names.txt"
 ATTACK_CATEGORIES_PATH = "../data/features/kdd_class_labels.txt"
-PROCESSED_TRAIN_PATH = "../data/processed/kdd_train.csv"
-PROCESSED_TEST_PATH = "../data/processed/kdd_test.csv"
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROCESSED_TRAIN_PATH = os.path.join(BASE_DIR, "data/processed/kdd_train.csv")
+PROCESSED_TEST_PATH = os.path.join(BASE_DIR, "data/processed/kdd_test.csv")
 
 def load_feature_names():
     """Loads feature names from metadata file."""
