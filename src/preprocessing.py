@@ -15,7 +15,9 @@ def load_feature_names():
     """Loads feature names from metadata file."""
     with open(FEATURE_NAMES_PATH, "r") as f:
         feature_names = f.read().splitlines()
-    return feature_names + ["label"]  # Add the attack label column
+    if "label" not in feature_names:
+        feature_names.append("label")  # Add the attack label column if not present
+    return feature_names
 
 def load_attack_categories():
     """Loads attack categories from metadata file."""
